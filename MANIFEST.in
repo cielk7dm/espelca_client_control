@@ -1,0 +1,4 @@
+include espelca/schema.sql
+graft espelca/static
+graft espelca/templates
+global-exclude *.pyc
