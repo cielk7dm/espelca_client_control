@@ -29,6 +29,11 @@ def create_app(test_config=None):
     from espelca import application
     app.register_blueprint(application.bp)
     app.add_url_rule('/', endpoint='index')
+    app.add_url_rule('/dashboard', endpoint='dashboard')
+    app.add_url_rule('/payments', endpoint='payments')
+    app.add_url_rule('/clients', endpoint='clients')
+    app.add_url_rule('/slots', endpoint='slots')
+    app.add_url_rule('/settings', endpoint='settings')
 
     from espelca import error_handler
     app.register_error_handler(404, error_handler.page_not_found)
