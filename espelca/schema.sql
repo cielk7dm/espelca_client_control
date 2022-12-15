@@ -4,12 +4,17 @@ DROP TABLE IF EXISTS user_session;
 CREATE TABLE user (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE NOT NULL,
-    password TEXT NOT NULL
+    password TEXT NOT NULL,
+    isadmin BOOLEAN NOT NULL DEFAULT 0
 );
 
 CREATE TABLE user_session (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    finished TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    isclosed BOOLEAN NOT NULL DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES user (id)
 );
+--please change admin password
+INSERT INTO user(username,password,isadmin) VALUES('admin','pbkdf2:sha256:260000$AjZhhAANuJ7XLOxt$b42cb5ecc08e235fa38fcc58fe19c7cd4db7c37896cc4e3d2f9a4434d26d94cc','1');
