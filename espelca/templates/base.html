@@ -37,10 +37,9 @@
     </div>
     {% endblock %}
   {% endif %}
-  {% block content %}{% endblock %}
+  {% block content %}
+  {% endblock %}
 </section>
 <section class="footer">
-  {% block footer %}
-  <p>&copy; Copyright 2022 by <a href="https:www.cielk7dm.wordpress.com">cielk7dm</a></p>
-  {% endblock %}
+  {% extends 'footer.html' %}
 </section>

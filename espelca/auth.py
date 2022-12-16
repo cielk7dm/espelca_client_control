@@ -74,7 +74,7 @@ def login():
 @bp.before_app_request
 def load_logged_in_user():
     user_id = session.get('user_id')
-    print(len(session))
+    
     if user_id is None:
         g.user = None
     else:
@@ -97,7 +97,7 @@ def logout():
             )
             db.commit()
         except db.IntegrityError:
-            error = 'Uodating user_session has an error.'
+            error = 'Updating user_session has an error.'
         session.clear()
     
     flash(error)
